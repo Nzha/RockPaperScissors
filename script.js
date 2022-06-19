@@ -19,18 +19,39 @@ function computerPlay() {
 
 function playRound(playerSelection, computerSelection) {
     if (playerSelection === "rock" && computerSelection === "scissors"){
-        return "rock crushes scissors, player wins!";
+        return "You win! Rock crushes scissors";
     } else if (playerSelection === "rock" && computerSelection === "paper"){
-        return "paper covers rock, player loses!";
+        return "You lose! Paper covers rock";
     } else if (playerSelection === "scissors" && computerSelection === "paper") {
-        return "scissors cuts paper, player wins!";
+        return "You win! Scissors cuts paper";
     } else if (playerSelection === "scissors" && computerSelection === "rock") {
-        return "rock crushes scissors, player loses!";
+        return "You lose! Rock crushes scissors";
     } else if (playerSelection === "paper" && computerSelection === "rock") {
-        return "paper covers rock, player wins!";
+        return "You win! Paper covers rock!";
     } else if (playerSelection === "paper" && computerSelection === "scissors") {
-        return "scissors cuts paper, player loses!";
+        return "You lose! Scissors cuts paper";
     } else {
         return "It's a tie!";
     }
 }
+
+let playerScore = 0;
+let computerScore = 0;
+
+function game(n) {
+    for (let i = 0; i < n; i++) {
+        let round = playRound(playerSelection, computerPlay());
+        console.log(round);
+        if (round.includes("win")) {
+            playerScore += 1;
+        } else if (round.includes("lose")) {
+            computerScore += 1;
+        }
+    }
+}
+
+playerSelection = "rock";
+game(5);
+
+console.log(playerScore);
+console.log(computerScore);
