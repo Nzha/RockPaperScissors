@@ -27,10 +27,8 @@ function playRound(playerSelection, computerSelection) {
         return "You win! Paper covers rock!";
     } else if (playerSelection === "paper" && computerSelection === "scissors") {
         return "You lose! Scissors cuts paper";
-    } else if (playerSelection === computerSelection) {
-        return "It's a tie!";
     } else {
-        return "Invalid shape";
+        return "It's a tie!";
     }
 }
 
