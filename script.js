@@ -3,6 +3,17 @@ function computerPlay() {
     return shapes[Math.floor(Math.random() * shapes.length)];
 }
 
+function userInput() {
+    let input = "";
+    do {
+        input = prompt("Please chose a shape between rock, paper, and scissors").toLowerCase();
+        if (input !== "rock" && input !== "paper" && input !== "scissors") {
+            alert("Invalid shape");
+        }
+       } while (input !== "rock" && input !== "paper" && input !== "scissors");
+    return input;
+}
+
 function playRound(playerSelection, computerSelection) {
     if (playerSelection === "rock" && computerSelection === "scissors"){
         return "You win! Rock crushes scissors";
@@ -23,17 +34,6 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-function userInput() {
-    const input = prompt("Please chose a shape between rock, paper, and scissors")
-    const playerSelection = input.toLowerCase();
-    // console.log(playerSelection);
-    if (playerSelection === "rock" || playerSelection === "paper" || playerSelection === "scissors") {
-        return playerSelection;
-    } else {
-        alert("Please insert a valid shape");
-    }
-}
-
 let playerScore = 0;
 let computerScore = 0;
 
@@ -47,6 +47,16 @@ function game(n) {
             computerScore += 1;
         }
         console.log(`Player score: ${playerScore}\nComputer score: ${computerScore}`)
+    }
+    if (playerScore > computerScore) {
+        console.log("Player wins!");
+        return "Player wins!";
+    } else if (playerScore < computerScore) {
+        console.log("Computer wins!");
+        return "Computer wins!";
+    } else {
+        console.log("It's a tie!");
+        return "It's a tie!";
     }
 }
 
