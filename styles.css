@@ -20,6 +20,10 @@ body {
     gap: 120px;
 }
 
+.shape:hover {
+    background-color: #f4f4f4;
+}
+
 .shape {
     background-color: white;
     border-radius: 15px;
