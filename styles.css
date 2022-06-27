@@ -1,11 +1,22 @@
+/* *{
+    border: 1px solid red;
+} */
+
 body {
-    /* border: 1px solid red; */
     font-family: 'Roboto', sans-serif;
+    background-color: #dfecf0;
     display: flex;
     height: 100vh;
     margin: 0;
     padding: 0;
-    flex-direction: column;
+    /* flex-direction: column; */
     justify-content: center;
     align-items: center;
+}
+
+.shapes {
+    display: flex;;
+    font-size: 120px;
+    gap: 120px;
+
 }
