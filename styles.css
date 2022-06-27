@@ -15,8 +15,18 @@ body {
 }
 
 .shapes {
-    display: flex;;
-    font-size: 120px;
+    display: flex;
+    text-align: center;
     gap: 120px;
+}
 
+.shape {
+    background-color: white;
+    border-radius: 15px;
+    padding: 12px;
+}
+
+.emoji {
+    font-size: 120px;
+    padding-bottom: 12px;
 }
