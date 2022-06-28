@@ -63,8 +63,18 @@ body {
     font-size: 18px;
 }
 
-.footer {
+.footer a {
     display: flex;
     justify-content: center;
+    align-items: center;
     background-color: #f8f9fa;
+    gap: 6px;
+    padding: 3px 0;
+    text-decoration: none;
+    color: inherit;
+}
+
+.footer img {
+    width: 20px;
+    height: 20px;
 }
