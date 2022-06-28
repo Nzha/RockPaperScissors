@@ -1,19 +1,3 @@
-// function computerPlay() {
-//     const shapes = ["rock", "paper", "scissors"];
-//     return shapes[Math.floor(Math.random() * shapes.length)];
-// }
-
-// function userInput() {
-//     let input = "";
-//     do {
-//         input = prompt("Please chose a shape between rock, paper, and scissors").toLowerCase();
-//         if (input !== "rock" && input !== "paper" && input !== "scissors") {
-//             alert("Invalid shape");
-//         }
-//        } while (input !== "rock" && input !== "paper" && input !== "scissors");
-//     return input;
-// }
-
 // function playRound(playerSelection, computerSelection) {
 //     if (playerSelection === "rock" && computerSelection === "scissors"){
 //         return "You win! Rock crushes scissors";
@@ -57,20 +41,18 @@
 
 // game(5);
 
-
+function computerPlay() {
+    const shapes = ["rock", "paper", "scissors"];
+    return shapes[Math.floor(Math.random() * shapes.length)];
+}
 
 const buttons = document.querySelectorAll('button');
 
-buttons.forEach((button) => {
-    button.addEventListener('click', (e) => {
-        /**
-         * Store user's shape wherever button is clicked
-         * (on the emoji, the text, or outside those elements but inside the button div) 
-         */
-        let shape = e.target.closest('.shape').id;
-
-        console.log(shape);
-    });
-});
-
-// console.log(shape);
+buttons.forEach(button => button.addEventListener('click', (e) => {
+    /**
+     * Store user's shape wherever button is clicked
+     * (on the emoji, the text, or outside those elements but inside the button div) 
+     */
+    let shape = e.target.closest('.shape').id;
+    console.log(shape);
+}));
