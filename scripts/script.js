@@ -41,18 +41,26 @@
 
 // game(5);
 
+
+
+const buttons = document.querySelectorAll('button');
+const score = document.querySelector('.score .text');
+
+buttons.forEach(button => button.addEventListener('click', (e) => {
+    playerPlay(e);
+    score.textContent = 'test';
+}));
+
 function computerPlay() {
     const shapes = ["rock", "paper", "scissors"];
     return shapes[Math.floor(Math.random() * shapes.length)];
 }
 
-const buttons = document.querySelectorAll('button');
-
-buttons.forEach(button => button.addEventListener('click', (e) => {
+function playerPlay(e) {
     /**
      * Store user's shape wherever button is clicked
      * (on the emoji, the text, or outside those elements but inside the button div) 
      */
-    let shape = e.target.closest('.shape').id;
-    console.log(shape);
-}));
+     let playerShape = e.target.closest('.shape').id;
+     console.log(playerShape); 
+}
