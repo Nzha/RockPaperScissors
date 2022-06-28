@@ -63,6 +63,14 @@ const buttons = document.querySelectorAll('button');
 
 buttons.forEach((button) => {
     button.addEventListener('click', (e) => {
-        console.log(e.target.closest('.shape').id);
+        /**
+         * Store user's shape wherever button is clicked
+         * (on the emoji, the text, or outside those elements but inside the button div) 
+         */
+        let shape = e.target.closest('.shape').id;
+
+        console.log(shape);
     });
 });
+
+// console.log(shape);
