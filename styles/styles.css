@@ -28,7 +28,7 @@ body {
     flex: 1;
 }
 
-.score {
+.result {
     display: flex;
     justify-content: center;
     font-size: 50px;
@@ -61,6 +61,14 @@ body {
 
 .shape .text {
     font-size: 18px;
+}
+
+.score {
+    display: flex;
+    justify-content: center;
+    gap: 150px;
+    font-size: 25px;
+    margin-top: 60px;
 }
 
 .footer a {
