@@ -36,14 +36,17 @@ header h1 {
     gap: 120px;
 }
 
-.shape:hover {
-    background-color: #f4f4f4;
-}
-
 .shape {
     background-color: white;
     border-radius: 15px;
     padding: 12px;
+    transition: all .07s;
+}
+
+.shape:hover {
+    transform: scale(1.1);
+    border: 2px solid #eda600;
+    box-shadow: 0 0 .5rem #ffc600;
 }
 
 .emoji {
