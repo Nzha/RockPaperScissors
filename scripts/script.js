@@ -1,4 +1,4 @@
-const buttons = document.querySelectorAll('button');
+const buttons = document.querySelectorAll('.shapes button');
 const controller = new AbortController();
 let playerScore = 0;
 let computerScore = 0;
@@ -14,10 +14,13 @@ function displayResults(e) {
     const resultBottom = document.querySelector('.result .text-bottom');
     const playerScoreDisplay = document.querySelector('#player-score');
     const computerScoreDisplay = document.querySelector('#computer-score');
-    const audioSuccess = document.querySelector('#success')
+    const audioClick = document.querySelector('#click')
+    const audioWin = document.querySelector('#win')
+    const audioLose = document.querySelector('#lose')
+    const reset = document.querySelector('.reset')
 
-    audioSuccess.currentTime = 0;
-    audioSuccess.play();
+    audioClick.currentTime = 0;
+    audioClick.play();
 
     let result = playRound(playerPlay(e), computerPlay());
     let resultArr = result.split('!');
@@ -35,10 +38,14 @@ function displayResults(e) {
     }
 
     if (playerScore === 5) {
+        audioWin.currentTime = 0;
+        audioWin.play();
         resultTop.textContent = 'Player wins!';
         resultBottom.textContent = 'Congratulations';
         controller.abort();
     } else if (computerScore === 5) {
+        audioLose.currentTime = 0;
+        audioLose.play();
         resultTop.textContent = 'Computer wins!';
         resultBottom.textContent = 'Better luck next time';
         controller.abort();

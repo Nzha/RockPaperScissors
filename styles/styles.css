@@ -34,9 +34,11 @@ body {
     justify-content: center;
     align-items: center;
     font-size: 50px;
-    margin: 130px 0 60px 0;
+    /* margin: 130px 0 60px 0; */
+    margin: 110px 0 60px 0;
     gap: 30px;
-    min-height: 152px;
+    /* min-height: 152px; */
+    min-height: 146px;
 }
 
 .result .text-bottom {
@@ -76,7 +78,24 @@ body {
     justify-content: center;
     gap: 150px;
     font-size: 25px;
-    margin-top: 60px;
+    margin: 60px 0;
+    min-height: 31px;
+}
+
+.reset {
+    display: flex;
+    justify-content: center;
+}
+
+.reset button {
+    background-color: white;
+    padding: 8px 24px;
+    border: 2px solid lightgray;
+    border-radius: 15px;
+}
+
+.reset button:hover {
+    border: 2px solid #eda600;
 }
 
 .footer a {
