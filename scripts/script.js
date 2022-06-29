@@ -1,8 +1,4 @@
 const buttons = document.querySelectorAll('button');
-const resultTop = document.querySelector('.result .text-top');
-const resultBottom = document.querySelector('.result .text-bottom');
-const playerScoreDisplay = document.querySelector('#player-score');
-const computerScoreDisplay = document.querySelector('#computer-score');
 const controller = new AbortController();
 let playerScore = 0;
 let computerScore = 0;
@@ -14,6 +10,15 @@ let computerScore = 0;
 buttons.forEach(button => button.addEventListener('click', displayResults, {signal: controller.signal}));
 
 function displayResults(e) {
+    const resultTop = document.querySelector('.result .text-top');
+    const resultBottom = document.querySelector('.result .text-bottom');
+    const playerScoreDisplay = document.querySelector('#player-score');
+    const computerScoreDisplay = document.querySelector('#computer-score');
+    const audioSuccess = document.querySelector('#success')
+
+    audioSuccess.currentTime = 0;
+    audioSuccess.play();
+
     let result = playRound(playerPlay(e), computerPlay());
     let resultArr = result.split('!');
 
@@ -21,6 +26,7 @@ function displayResults(e) {
     resultBottom.textContent = resultArr[1];
     playerScoreDisplay.textContent = `Player score: ${playerScore}`;
     computerScoreDisplay.textContent = `Computer score: ${computerScore}`;
+
 
     if (resultArr[0].includes('tie')) {
         resultTop.textContent = '';
