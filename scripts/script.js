@@ -30,6 +30,7 @@ function displayResults(e) {
     playerScoreDisplay.textContent = `Player score: ${playerScore}`;
     computerScoreDisplay.textContent = `Computer score: ${computerScore}`;
 
+    reset.setAttribute('id','reset');
 
     if (resultArr[0].includes('tie')) {
         resultTop.textContent = '';

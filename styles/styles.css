@@ -83,18 +83,22 @@ body {
 }
 
 .reset {
+    display: none;
+}
+
+#reset {
     display: flex;
     justify-content: center;
 }
 
-.reset button {
+#reset button {
     background-color: white;
     padding: 8px 24px;
     border: 2px solid lightgray;
     border-radius: 15px;
 }
 
-.reset button:hover {
+#reset button:hover {
     border: 2px solid #eda600;
 }
 
