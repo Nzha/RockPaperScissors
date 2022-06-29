@@ -30,9 +30,17 @@ body {
 
 .result {
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
     font-size: 50px;
-    margin: 200px 0 60px 0;
+    margin: 130px 0 60px 0;
+    gap: 30px;
+    min-height: 152px;
+}
+
+.result .text-bottom {
+    font-size: 35px;
 }
 
 .shapes {
