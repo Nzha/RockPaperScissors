@@ -1,50 +1,29 @@
-// function game(n) {
-//     for (let i = 0; i < n; i++) {
-//         let round = playRound(userInput(), computerPlay());
-//         console.log(round);
-//         if (round.includes("win")) {
-//             playerScore += 1;
-//         } else if (round.includes("lose")) {
-//             computerScore += 1;
-//         }
-//         console.log(`Player score: ${playerScore}\nComputer score: ${computerScore}`)
-//     }
-//     if (playerScore > computerScore) {
-//         console.log("Player wins!");
-//     } else if (playerScore < computerScore) {
-//         console.log("Computer wins!");
-//     } else {
-//         console.log("It's a tie!");
-//     }
-// }
-
-// game(5);
-
-
-
 const buttons = document.querySelectorAll('button');
 const result = document.querySelector('.result .text');
 const playerScoreDisplay = document.querySelector('#player-score');
 const computerScoreDisplay = document.querySelector('#computer-score');
+const controller = new AbortController();
 let playerScore = 0;
 let computerScore = 0;
 
-buttons.forEach(button => button.addEventListener('click', displayResults));
+/**
+ * Pass the signal portion of the AbortController to the addEventListener function
+ * and then anytime abort is called it will remove the event listener.
+*/
+buttons.forEach(button => button.addEventListener('click', displayResults, {signal: controller.signal}));
 
 function displayResults(e) {
     result.textContent = playRound(playerPlay(e), computerPlay());
     playerScoreDisplay.textContent = `Player score: ${playerScore}`;
     computerScoreDisplay.textContent = `Computer score: ${computerScore}`;
+    if (playerScore === 5) {
+        result.textContent = 'Player wins! Congratulations';
+        controller.abort();
+    } else if (computerScore === 5) {
+        result.textContent = 'Computer wins! Better luck next time';
+        controller.abort();
+    }
 } 
-
-
-if (playerScore === 5) {
-    result.textContent = 'Player wins! Congratulations';
-    removeEventListener('click', displayResults);
-} else if (computerScore === 5) {
-    result.textContent = 'Computer wins! Better luck next time';
-    removeEventListener('click', displayResults);
-}
 
 function computerPlay() {
     const shapes = ["rock", "paper", "scissors"];
