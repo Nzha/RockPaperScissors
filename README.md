@@ -1,2 +1,2 @@
 # RockPaperScissors
-Create a simple rock-paper-scissors game with no GUI.
+Create a rock-paper-scissors game from scratch using html, css, and vanilla javascript.
