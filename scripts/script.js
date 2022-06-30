@@ -24,7 +24,7 @@ function displayResults(e) {
 
     let result = playRound(playerPlay(e), computerPlay());
     let resultArr = result.split('!');
-
+    
     resultTop.textContent = resultArr[0] + '!';
     resultBottom.textContent = resultArr[1];
     playerScoreDisplay.textContent = `Player score: ${playerScore}`;
@@ -33,6 +33,7 @@ function displayResults(e) {
     reset.setAttribute('id','reset');
     reset.addEventListener('click', () => window.location.reload());
 
+    // Adjust text size and place when there's a tie
     if (resultArr[0].includes('tie')) {
         resultTop.textContent = '';
         resultBottom.textContent = resultArr[0] + '!';
