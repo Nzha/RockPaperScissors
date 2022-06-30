@@ -61,12 +61,14 @@ function displayResults(e) {
         audioWin.currentTime = 0;
         audioWin.play();
         resultFirstLine.textContent = 'Player wins!';
+        resultFirstLine.style.color = 'darkgreen';
         resultSecondLine.textContent = 'Congratulations';
         controller.abort();
     } else if (computerScore === 5) {
         audioLose.currentTime = 0;
         audioLose.play();
         resultFirstLine.textContent = 'Computer wins!';
+        resultFirstLine.style.color = 'darkred';
         resultSecondLine.textContent = 'Better luck next time';
         controller.abort();
     }
