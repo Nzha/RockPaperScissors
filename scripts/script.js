@@ -1,4 +1,4 @@
-const buttons = document.querySelectorAll('.shapes button');
+const buttons = document.querySelectorAll('.player-shapes button');
 const controller = new AbortController();
 let playerScore = 0;
 let computerScore = 0;
@@ -10,8 +10,9 @@ let computerScore = 0;
 buttons.forEach(button => button.addEventListener('click', displayResults, {signal: controller.signal}));
 
 function displayResults(e) {
-    const resultTop = document.querySelector('.result .text-top');
-    const resultBottom = document.querySelector('.result .text-bottom');
+    const computerShape = document.querySelector('.computer-shapes');
+    const resultFirstLine = document.querySelector('.result .text:first-child');
+    const resultSecondLine = document.querySelector('.result .text:last-child');
     const playerScoreDisplay = document.querySelector('#player-score');
     const computerScoreDisplay = document.querySelector('#computer-score');
     const audioClick = document.querySelector('#click')
@@ -22,35 +23,51 @@ function displayResults(e) {
     audioClick.currentTime = 0;
     audioClick.play();
 
-    let result = playRound(playerPlay(e), computerPlay());
+    let computerSelection = computerPlay();
+    let result = playRound(playerPlay(e), computerSelection);
     let resultArr = result.split('!');
-    
-    resultTop.textContent = resultArr[0] + '!';
-    resultBottom.textContent = resultArr[1];
+
+    // Determine computer' shape to display
+    if (computerSelection.includes('rock')) {
+        computerShape.querySelector('.emoji').textContent = '✊';
+        computerShape.querySelector('.text').textContent = 'Rock';
+    } else if (computerSelection.includes('paper')) {
+        computerShape.querySelector('.emoji').textContent = '✋';
+        computerShape.querySelector('.text').textContent = 'Paper';
+    } else {
+        computerShape.querySelector('.emoji').textContent = '✌️';
+        computerShape.querySelector('.text').textContent = 'Scissors';
+    }
+
+    resultFirstLine.textContent = resultArr[0] + '!';
+    resultSecondLine.textContent = resultArr[1];
+
     playerScoreDisplay.textContent = `Player score: ${playerScore}`;
     computerScoreDisplay.textContent = `Computer score: ${computerScore}`;
 
     reset.setAttribute('id','reset');
     reset.addEventListener('click', () => window.location.reload());
 
-    // Adjust text size and place when there's a tie
+    // Adjust text size and place when there's a tie and reset to default value on next click
+    resultSecondLine.style.fontSize = '35px';
     if (resultArr[0].includes('tie')) {
-        resultTop.textContent = '';
-        resultBottom.textContent = resultArr[0] + '!';
-        resultBottom.style.fontSize = '50px';
+        resultFirstLine.textContent = '';
+        resultSecondLine.textContent = resultArr[0] + '!';
+        resultSecondLine.style.fontSize = '50px';
     }
 
+    // Display final result with sound and stop event
     if (playerScore === 5) {
         audioWin.currentTime = 0;
         audioWin.play();
-        resultTop.textContent = 'Player wins!';
-        resultBottom.textContent = 'Congratulations';
+        resultFirstLine.textContent = 'Player wins!';
+        resultSecondLine.textContent = 'Congratulations';
         controller.abort();
     } else if (computerScore === 5) {
         audioLose.currentTime = 0;
         audioLose.play();
-        resultTop.textContent = 'Computer wins!';
-        resultBottom.textContent = 'Better luck next time';
+        resultFirstLine.textContent = 'Computer wins!';
+        resultSecondLine.textContent = 'Better luck next time';
         controller.abort();
     }
 } 
