@@ -1,0 +1,135 @@
+/* *{
+    border: 1px solid red;
+} */
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #dfecf0;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    font-family: 'Bebas Neue', cursive;
+    background-color: white;
+    text-align: center;
+    color: #eda600;
+    font-size: 30px;
+}
+
+.header h1 {
+    margin: 0;
+}
+
+.content {
+    flex: 1;
+}
+
+.computer-shapes {
+    display: flex;
+    justify-content: center;
+    margin-top: 60px;
+}
+
+.computer-shapes button {
+    min-height: 202px;
+}
+
+.computer-shapes .emoji {
+    font-size: 100px;
+}
+
+.result {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 50px;
+    margin: 20px 0 30px 0;
+    gap: 20px;
+    min-height: 146px;
+}
+
+.result .text:last-child {
+    font-size: 35px;
+}
+
+.player-shapes {
+    display: flex;
+    justify-content: center;
+    gap: 120px;
+}
+
+.shape {
+    background-color: white;
+    border-radius: 15px;
+    padding: 12px;
+    transition: all .07s;
+}
+
+.player-shapes .shape:hover {
+    transform: scale(1.1);
+    border: 2px solid #eda600;
+    box-shadow: 0 0 .5rem #ffc600;
+}
+
+.emoji {
+    font-size: 120px;
+    padding-bottom: 12px;
+}
+
+.shape .text {
+    font-size: 18px;
+}
+
+.score {
+    display: flex;
+    justify-content: center;
+    gap: 110px;
+    font-size: 25px;
+    margin: 60px 0 30px 0;
+    min-height: 31px;
+}
+
+#player-score,
+#computer-score {
+    width: 205px;
+}
+
+#player-score {
+    text-align: center;
+}
+
+.reset {
+    display: none;
+}
+
+#reset {
+    display: flex;
+    justify-content: center;
+}
+
+#reset button {
+    background-color: white;
+    padding: 8px 24px;
+    border: 2px solid lightgray;
+    border-radius: 15px;
+}
+
+#reset button:hover {
+    border: 2px solid #eda600;
+}
+
+.footer a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f8f9fa;
+    gap: 6px;
+    padding: 3px 0;
+    text-decoration: none;
+    color: inherit;
+}
