@@ -38,6 +38,10 @@ body {
     min-height: 202px;
 }
 
+.computer-shapes .emoji {
+    font-size: 100px;
+}
+
 .result {
     display: flex;
     flex-direction: column;
