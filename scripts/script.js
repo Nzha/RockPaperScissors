@@ -31,6 +31,7 @@ function displayResults(e) {
     computerScoreDisplay.textContent = `Computer score: ${computerScore}`;
 
     reset.setAttribute('id','reset');
+    reset.addEventListener('click', () => window.location.reload());
 
     if (resultArr[0].includes('tie')) {
         resultTop.textContent = '';
