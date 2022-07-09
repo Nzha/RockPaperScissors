@@ -34,6 +34,10 @@ body {
     margin-top: 60px;
 }
 
+.computer-shapes .shape {
+    width: 153px;
+}
+
 .computer-shapes button {
     min-height: 202px;
 }
@@ -68,6 +72,10 @@ body {
     border-radius: 15px;
     padding: 12px;
     transition: all .07s;
+}
+
+.player-shapes .shape {
+    width: 178px;
 }
 
 .player-shapes .shape:hover {
