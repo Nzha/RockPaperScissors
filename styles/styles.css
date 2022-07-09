@@ -52,7 +52,7 @@ body {
     justify-content: center;
     align-items: center;
     font-size: 50px;
-    margin: 20px 0 30px 0;
+    margin: 10px 0 20px 0;
     gap: 20px;
     min-height: 146px;
 }
@@ -65,7 +65,6 @@ body {
     display: flex;
     justify-content: center;
     gap: 120px;
-    height: 202px;
 }
 
 .shape {
