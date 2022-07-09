@@ -65,6 +65,7 @@ body {
     display: flex;
     justify-content: center;
     gap: 120px;
+    height: 202px;
 }
 
 .shape {
